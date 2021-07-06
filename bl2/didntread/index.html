@@ -1,3 +1,43 @@
----
-redirect_to: https://apple1417.dev/bl2/didntread/
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Redirecting&hellip;</title>
+    <link rel="canonical" href="https://bl-sdk.github.io/requirements/">
+    <meta name="robots" content="noindex">
+    <script>
+        let newUrl = "https://bl-sdk.github.io/requirements"
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has("m")) {
+            newUrl += "?m=" + urlParams.get("m");
+        }
+        if (urlParams.has("au")) {
+            newUrl += "&AsyncUtil";
+            const version =  urlParams.get("au");
+            if (version) {
+                newUrl += "=>=" + version;
+            }
+        }
+        if (urlParams.has("uf")) {
+            newUrl += "&UserFeedback";
+            const version =  urlParams.get("uf");
+            if (version) {
+                newUrl += "=>=" + version;
+            }
+        }
+        if (urlParams.has("update") || urlParams.has("ow")) {
+            newUrl += "&update";
+        }
+
+        window.addEventListener("load", function() {
+            document.getElementsByTagName("a")[0].href = newUrl;
+        });
+
+        location = newUrl;
+    </script>
+</head>
+<body>
+    <h1>Redirecting&hellip;</h1>
+    <a href="https://bl-sdk.github.io/requirements/">Click here if you are not redirected.</a>
+</body>
